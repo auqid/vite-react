@@ -1,7 +1,7 @@
 import React from "react";
-import Expenses from "./components/Expenses";
-
-const App = () => {
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+const App = (props) => {
   const expenses = [
     {
       id: "e1",
@@ -23,10 +23,14 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseHandler = (expense) => {
+    console.log("value showing in app.js", expense);
+  };
 
   return (
     <div>
       <Expenses items={expenses} />
+      <NewExpense onSaveExpense={addExpenseHandler}></NewExpense>
     </div>
   );
 };
